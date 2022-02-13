@@ -1,9 +1,7 @@
 import {
-  BsSpotify,
   MdEmail,
   AiOutlineGithub,
-  AiOutlineTwitter,
-  FaDiscord,
+  AiOutlineLinkedin  
 } from "../Icons";
 
 import Link from "next/link";
@@ -14,7 +12,7 @@ const Contact = () => {
       <p className="text-3xl font-bold text-white">Get in touch</p>
 
       <div className="my-8 flex flex-row justify-center gap-x-4">
-        <Link href="https://github.com/kr-anurag" passHref>
+        <Link href="https://github.com/FelixVNolasco" passHref>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -25,18 +23,7 @@ const Contact = () => {
           </a>
         </Link>
 
-        <Link href="https://twitter.com/kr_anurag_" passHref>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-            className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
-          >
-            <AiOutlineTwitter />
-          </a>
-        </Link>
-
-        <Link href="mailto:kr.anurag24@gmail.com" passHref>
+        <Link href="mailto:felixvnolasco@gmail.com" passHref>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -47,19 +34,8 @@ const Contact = () => {
           </a>
         </Link>
 
-        <Link href="https://discord.com/users/849171428497424404" passHref>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="mail"
-            className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
-          >
-            <FaDiscord />
-          </a>
-        </Link>
-
         <Link
-          href="https://open.spotify.com/user/31l2fev6wn2mtzclbpvzxis3x77q"
+          href="https://www.linkedin.com/in/felixvnolasco/"
           passHref
         >
           <a
@@ -68,9 +44,10 @@ const Contact = () => {
             aria-label="mail"
             className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
           >
-            <BsSpotify />
+            <AiOutlineLinkedin />
           </a>
         </Link>
+
       </div>
     </div>
   );
