@@ -3,7 +3,7 @@
 </h1>
 
 
-![demo](./public/assests/docs/demo.png)
+<!--![demo](./public/assests/docs/demo.png) -->
 
 ✨ [Live Demo]()
 
