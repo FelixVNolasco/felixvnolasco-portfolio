@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     <div className="my-16 px-3 font-sen" id="projects">
       <p className="text-3xl font-bold text-white">Featured Projects</p>
       <div className="my-8 flex flex-col items-center justify-center gap-10 sm:flex-row">
-        <Link href="https://journal-app-felixvnolasco.herokuapp.com/auth/login" passHref>
+        <Link href="https://journal-app-react-mu.vercel.app/auth/login" passHref>
           <a
             className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#D8B4FE] to-[#818CF8] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
           </a>
         </Link>
 
-        <Link href="https://journal-app-react-mu.vercel.app/auth/login" passHref>
+        <Link href="https://felixvnolasco-firebase-auth.herokuapp.com/login" passHref>
           <a
             className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#9e3030] via-[#ad39a4] to-[#c54abb] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
