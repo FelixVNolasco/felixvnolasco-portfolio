@@ -36,7 +36,7 @@ const Projects: React.FC = () => {
         </Link>
         <Link href="https://olympus-dashboard.vercel.app/" passHref>
           <a
-            className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 text-white duration-100 hover:scale-105"
+            className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#C4D6B0] via-[#477998] to-[#FECACA] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
             rel="noopener noreferrer"
           >
