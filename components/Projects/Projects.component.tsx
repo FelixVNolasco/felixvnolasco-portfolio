@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
           </a>
         </Link>
 
-        <Link href="https://evening-plains-49248.herokuapp.com/" passHref>
+        <Link href="https://olympus-store.vercel.app/" passHref>
           <a
             className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
@@ -28,7 +28,21 @@ const Projects: React.FC = () => {
           >
             <div className="flex h-full w-full flex-col items-center justify-center rounded-lg bg-primary px-2 text-center font-medium">
               <p className="text-xl font-semibold">Olympus Store</p>
-              <p>Ecommerce created with ReactJS & Mongo Realm</p>
+              <p>Ecommerce created with ReactJS & NodeJs</p>
+            </div>
+          </a>
+
+
+        </Link>
+        <Link href="https://olympus-dashboard.vercel.app/" passHref>
+          <a
+            className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 text-white duration-100 hover:scale-105"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex h-full w-full flex-col items-center justify-center rounded-lg bg-primary px-2 text-center font-medium">
+              <p className="text-xl font-semibold">Olympus Dashboard</p>
+              <p>Dashboard created with ReactJS & NodeJs</p>
             </div>
           </a>
         </Link>
