@@ -35,7 +35,7 @@ const Skills = () => {
       </div>
 
       <p className="text-lg font-medium text-slate-300">
-        ...more skills include <span className="text-white">javascript</span>,{" "}
+        ...more skills include <span className="text-white">C#</span>,{" "}
         <span className="text-white">MongoDB</span>,{" "}
         <span className="text-white">SQL </span>{" "}
       </p>
