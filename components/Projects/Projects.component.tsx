@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
           </a>
         </Link>
 
-        <Link href="https://felixvnolasco-firebase-auth.herokuapp.com/login" passHref>
+        <Link href="https://journal-app-react-mu.vercel.app/auth/login" passHref>
           <a
             className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#9e3030] via-[#ad39a4] to-[#c54abb] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
