@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
           </a>
         </Link>
 
-        <Link href="https://olympus-store.vercel.app/" passHref>
+        <Link href="https://olympus-store-app.vercel.app/" passHref>
           <a
             className="h-[7rem] w-[14rem] cursor-pointer rounded-lg bg-gradient-to-r from-[#FDE68A] via-[#FCA5A5] to-[#FECACA] p-1 text-white duration-100 hover:scale-105"
             target="_blank"
