@@ -28,7 +28,7 @@ const Projects: React.FC = () => {
           >
             <div className="flex h-full w-full flex-col items-center justify-center rounded-lg bg-primary px-2 text-center font-medium">
               <p className="text-xl font-semibold">Olympus Store</p>
-              <p>Ecommerce created with ReactJS & NodeJs</p>
+              <p>Ecommerce created with ReactJS & Firebase</p>
             </div>
           </a>
 
