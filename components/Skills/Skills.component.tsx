@@ -10,7 +10,7 @@ const Skills = () => {
 
         <p className="flex flex-row items-center border-b-[0.1px] border-gray-500 py-1 text-slate-300">
           <BsArrowRightShort size="30" />
-          <span className="text-white">Javascript</span>
+          <span className="text-white">Typescript</span>
           &nbsp;as my main language
         </p>
 
@@ -23,21 +23,16 @@ const Skills = () => {
 
         <p className="flex flex-row items-center border-b-[0.1px] border-gray-500 py-1 text-slate-300">
           <BsArrowRightShort size="30" />
-          <span className="text-white">SASS </span>
-          &nbsp;as my CSS Framework
-        </p>
-
-        <p className="flex flex-row items-center border-b-[0.1px] border-gray-500 py-1 text-slate-300">
-          <BsArrowRightShort size="30" />
-          <span className="text-white">ExpressJs </span>
+          <span className="text-white">.NET Core</span>
           &nbsp;as my Backend Framework
         </p>
+
       </div>
 
       <p className="text-lg font-medium text-slate-300">
-        ...more skills include <span className="text-white">C#</span>,{" "}
-        <span className="text-white">MongoDB</span>,{" "}
-        <span className="text-white">SQL </span>{" "}
+        ...more skills include <span className="text-white">MongoDB</span>,{" "}
+        <span className="text-white">SQL</span>,{" "}
+        <span className="text-white">Entity Framework</span>{" "}
       </p>
     </div>
   );
