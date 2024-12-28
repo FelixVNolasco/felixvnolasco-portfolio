@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
-import { VscGithubAlt } from "react-icons/vsc";
+import { AiOutlineLinkedin } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 
 const TextLink = ({ text, href }: any) => {
   return (
@@ -38,16 +39,29 @@ const Header: React.FC = () => {
         <TextLink text="Contact" href="#contact" />
       </p>
 
-      <Link href="https://github.com/FelixVNolasco" passHref>
-        <a
-          className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="github-repo"
-        >
-          <VscGithubAlt />
-        </a>
-      </Link>
+      <div className="flex gap-2">
+        <Link href="mailto:felixvnolasco@gmail.com" passHref>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="mail"
+            className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
+          >
+            <MdEmail />
+          </a>
+        </Link>
+
+        <Link href="https://www.linkedin.com/in/felixvnolasco/" passHref>
+          <a
+            className="rounded-lg border-2 border-zinc-900 bg-zinc-800 p-2 text-2xl text-white hover:border-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="github-repo"
+          >
+            <AiOutlineLinkedin />
+          </a>
+        </Link>
+      </div>
     </header>
   );
 };
