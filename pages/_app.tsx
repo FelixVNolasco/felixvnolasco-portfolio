@@ -10,21 +10,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
 
       <NextSeo
-        title="FelixVNolasco | Frontend Developer"
-        titleTemplate="FelixVNolasco | Frontend Developer"
-        defaultTitle="FelixVNolasco | Frontend Developer"
-        description="Hi! I'm Felix, A Frontend Developer & Computer Engineering student!"
+        title="FelixVNolasco | Software Developer"
+        titleTemplate="FelixVNolasco | Software Developer"
+        defaultTitle="FelixVNolasco | Software Developer"
         openGraph={{
           url: "",
-          title: "FelixVNolasco | Frontend Developer",
-          description:
-            "Hi! I'm Felix, A Frontend Developer & Computer Engineering student!"
+          title: "FelixVNolasco | Software Developer",
+          description: ""
         }}
         additionalMetaTags={[
           {
             property: "keywords",
             content:
-              "Frontend Developer, felixvnolasco, felix vega, Web Developer, web development, web developer, tech enthusiast",
+              "Software Developer, felixvnolasco, felix vega, Web Developer, web development, web developer, tech enthusiast",
           },
         ]}
       />
