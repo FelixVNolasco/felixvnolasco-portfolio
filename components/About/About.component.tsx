@@ -45,7 +45,7 @@ const About = () => {
 
       <div className="hidden lg:block">
         <Image
-          src="https://media.licdn.com/dms/image/v2/D5603AQFojN6lxrl3Sg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707966633734?e=1740614400&v=beta&t=Sf3K6yK8FEW0c0MtSWF6DXE85utIDhQnstBQ99ICaus"
+          src="https://media.licdn.com/dms/image/v2/D5603AQFojN6lxrl3Sg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707966633734?e=1759363200&v=beta&t=8tvKNONCV3j5iUw-upM8huyx-CpIiCoS-2Nw2bfq_Ik"
           width="112"
           height="112"
           className="rounded-full"
