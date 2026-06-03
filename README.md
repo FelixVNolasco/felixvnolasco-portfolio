@@ -1,19 +1,42 @@
-<h1>
-    Welcome to my Portfolio
-</h1>
+# FelixVNolasco Portfolio
 
+Personal portfolio for Felix Vega, built with Next.js, React, TypeScript and Tailwind CSS.
 
-<!--![demo](./public/assests/docs/demo.png) -->
+[Live Demo](https://felixvnolasco-portfolio-axef07c3r-felixvnolasco.vercel.app/#)
 
-✨ [Live Demo](https://felixvnolasco-portfolio-axef07c3r-felixvnolasco.vercel.app/#)
+## Getting Started
 
+Install dependencies with npm:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+```bash
+npm install
+```
 
+Run the local development server:
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
+```bash
+npm run dev
+```
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+Build for production:
+
+```bash
+npm run build
+```
+
+## Quality Checks
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run test:e2e
+```
+
+## Editing Portfolio Content
+
+Editable profile, navigation, skills, social links and project data live in:
+
+```text
+data/portfolio.ts
+```

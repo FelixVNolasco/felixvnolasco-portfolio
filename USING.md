@@ -1,58 +1,62 @@
-### Using the Portfolio Template
+### Using This Portfolio
 
-First, click on the `Use this template` button
+This project is maintained with npm. Keep `package-lock.json` as the only dependency lockfile.
 
-![](./public/assests/docs/template.png)
+### Running Locally
 
-Now choose a name for your repo and create.
+Install dependencies:
 
-![](./public/assests/docs/create.png)
-
-### Running locally
-
-- Clone the repo locally first
-
-```git
-git clone <url>
+```bash
+npm install
 ```
 
-- Install the dependencies
+Start the development server:
 
-```
-npm install # for npm
-yarn install # for yarn
-```
-
-- Start the server
-
-```
-npm run dev # for npm
-yarn dev # for yarn
+```bash
+npm run dev
 ```
 
-## Making changes
+Open `http://localhost:3000`.
 
-To add your details go to the data.json file in the public folder and replace my data with yours.
+### Making Changes
 
-To customize the colors go to `tailwind.config.js` and replace the existing colors with your brand colors.
+Portfolio content is centralized in:
 
-After you have added all your data. Push the code to GitHub with these commands
-
-```
-git add .
-git commit -m "your commit message"
-git push
+```text
+data/portfolio.ts
 ```
 
-## Deploying
+Use that file for profile information, SEO metadata, navigation links, social links, skills and projects.
 
-- Go to [Vercel](https://vercel.com/dashboard)
-- Sign up for an account
-- Click on New project
-- Import your repository
-- Click skip while creating a team and then hit deploy
-- After it is deployed click on go to dashboard
-- Your site is successfully deployed 🥳
-- Now grab the URL and show it to world
+To customize colors, update:
 
-![](./public/assests/docs/vercel.png)
+```text
+tailwind.config.js
+```
+
+To replace stable public assets like the avatar, update files in:
+
+```text
+public/assests
+```
+
+### Validating Changes
+
+Run these checks before opening a pull request:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm test
+npm run test:e2e
+```
+
+### Deploying
+
+Deploy through Vercel:
+
+1. Open the Vercel dashboard.
+2. Import this repository.
+3. Keep the default Next.js settings.
+4. Deploy the project.

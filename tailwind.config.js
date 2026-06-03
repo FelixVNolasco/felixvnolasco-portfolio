@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         jost: ["Jost", "sans-serif"],
         sen: ["Sen", "sans-serif"],
+        anton: ["Anton", "sans-serif"],
+        geist: ["Geist", "sans-serif"],
+        "geist-mono": ["Geist Mono", "monospace"],
       },
 
       screens: {

@@ -5,24 +5,25 @@ import NextNProgress from "nextjs-progressbar";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 
+import { portfolio } from "../data/portfolio";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-
       <NextSeo
-        title="FelixVNolasco | Software Developer"
-        titleTemplate="FelixVNolasco | Software Developer"
-        defaultTitle="FelixVNolasco | Software Developer"
+        title={portfolio.seo.title}
+        titleTemplate={portfolio.seo.title}
+        defaultTitle={portfolio.seo.title}
+        description={portfolio.seo.description}
         openGraph={{
           url: "",
-          title: "FelixVNolasco | Software Developer",
-          description: ""
+          title: portfolio.seo.title,
+          description: portfolio.seo.description,
         }}
         additionalMetaTags={[
           {
             property: "keywords",
-            content:
-              "Software Developer, felixvnolasco, felix vega, Web Developer, web development, web developer, tech enthusiast",
+            content: portfolio.seo.keywords,
           },
         ]}
       />

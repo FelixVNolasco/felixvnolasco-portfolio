@@ -1,49 +1,59 @@
 ## Contributing Guide
 
-We are going to create a pr. You need to know basic git and github commands to make a pr for this.
+This project uses npm and Conventional Commits.
 
-Click on fork in the top left corner of your screen. Clone the repo you have been redirected to
-
-```bash
-git clone url_redirected_to
-```
-
-### Installing dependencies
-
-If you use yarn then run
+### Installing Dependencies
 
 ```bash
-yarn install # for yarn
-npm install # for npm
+npm install
 ```
 
-### Creating a new branch
+### Creating a Branch
 
 ```bash
-git checkout -b new-feature
+git checkout -b feat/my-change
 ```
 
-### Starting server
+### Starting the App
 
 ```bash
-yarn dev # for yarn
-npm run dev # for npm
+npm run dev
 ```
 
-## 🛡️ License
+### Quality Checks
 
-This project is licensed under the MIT License - see the [`LICENSE`](LICENSE) file for details.
+Run these before opening a pull request:
 
-### Creating a PR
-
-**Pushing the code to Github**
-
+```bash
+npm run lint
+npm run typecheck
+npm run build
+npm test
+npm run test:e2e
 ```
+
+### Commit Messages
+
+Use Conventional Commits because Commitlint and the release workflow depend on this format.
+
+Valid examples:
+
+```text
+feat: add project data source
+fix: correct contact aria labels
+chore: configure tests
+```
+
+### Creating a Pull Request
+
+```bash
 git add .
-git commit -m "commit message (what you added)"
-git push origin new-feature
+git commit -m "feat: describe your change"
+git push origin feat/my-change
 ```
 
-After pushing the code go to your repository go to your repository and make a pull request.
+Open a pull request from your branch and describe the proposed changes.
 
-You have created your pull request, I will review it soon
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
