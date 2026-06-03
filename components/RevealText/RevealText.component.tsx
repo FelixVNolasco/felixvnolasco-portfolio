@@ -43,33 +43,32 @@ const getAnimationSettings = (
 
   const settings = {
     hero: {
-      from: { opacity: 0, y: 34, filter: "blur(8px)" },
-      to: { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9 },
+      from: { y: 34, filter: "blur(8px)" },
+      to: { y: 0, filter: "blur(0px)", duration: 0.9 },
     },
     heading: {
-      from: { opacity: 0, x: -28, clipPath: "inset(0 100% 0 0)" },
+      from: { x: -28, clipPath: "inset(0 100% 0 0)" },
       to: {
-        opacity: 1,
         x: 0,
         clipPath: "inset(0 0% 0 0)",
         duration: 0.75,
       },
     },
     body: {
-      from: { opacity: 0, y: 22 },
-      to: { opacity: 1, y: 0, duration: 0.7 },
+      from: { y: 22 },
+      to: { y: 0, duration: 0.7 },
     },
     list: {
-      from: { opacity: 0, x: -18 },
-      to: { opacity: 1, x: 0, duration: 0.55 },
+      from: { x: -18 },
+      to: { x: 0, duration: 0.55 },
     },
     link: {
-      from: { opacity: 0, y: 14 },
-      to: { opacity: 1, y: 0, duration: 0.5 },
+      from: { y: 14 },
+      to: { y: 0, duration: 0.5 },
     },
     card: {
-      from: { opacity: 0, y: 24, scale: 0.96 },
-      to: { opacity: 1, y: 0, scale: 1, duration: 0.55 },
+      from: { y: 24, scale: 0.96 },
+      to: { y: 0, scale: 1, duration: 0.55 },
     },
   };
 

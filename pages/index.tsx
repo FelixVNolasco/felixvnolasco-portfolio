@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { portfolio } from "../data/portfolio";
-import { FeaturedProjectBento, FeaturedProjectHorizontal } from "../components";
+import {
+  AnimatedButton,
+  FeaturedProjectBento,
+  FeaturedProjectHorizontal,
+  RevealText,
+} from "../components";
 
 type EditorialProject = {
   name: string;
@@ -172,69 +177,142 @@ const ImageFill = ({
   />
 );
 
+const ContactButtons = ({ delay = 0 }: { delay?: number }) => (
+  <RevealText
+    as="div"
+    className="flex flex-col gap-3 sm:flex-row"
+    variant="card"
+    delay={delay}
+  >
+    <AnimatedButton
+      href={whatsAppLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      tone="whatsapp"
+    >
+      SEND WHATSAPP
+    </AnimatedButton>
+
+    <AnimatedButton
+      href={linkedInLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      tone="linkedin"
+    >
+      LINKEDIN
+    </AnimatedButton>
+    <AnimatedButton href={emailLink} tone="email">
+      SEND ME AN EMAIL
+    </AnimatedButton>
+  </RevealText>
+);
+
 const Home: NextPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="mx-auto w-full max-w-[1440px] overflow-hidden bg-black">
+      <div className="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-black">
+        <header className="sticky top-0 z-50 flex items-center justify-between gap-6 bg-black/85 px-5 py-5 font-geist-mono text-xs font-semibold uppercase tracking-normal backdrop-blur sm:px-8">
+          {/* <a href="#" className="whitespace-nowrap text-white">
+            INICIO
+          </a> */}
+
+          <nav
+            className="hidden items-center gap-8 text-[#a6a6a6] sm:flex"
+            aria-label="Main navigation"
+          >
+            <RevealText
+              as="a"
+              href="#skills"
+              className="duration-150 hover:text-white"
+              variant="link"
+            >
+              Skills
+            </RevealText>
+            <RevealText
+              as="a"
+              href="#projects"
+              className="duration-150 hover:text-white"
+              variant="link"
+              delay={0.05}
+            >
+              Projects
+            </RevealText>
+            <RevealText
+              as="a"
+              href="#contact"
+              className="duration-150 hover:text-white"
+              variant="link"
+              delay={0.1}
+            >
+              Contact
+            </RevealText>
+          </nav>
+
+          <RevealText
+            as="a"
+            href="https://felixvnolasco.com"
+            className="hidden text-white sm:block"
+            variant="link"
+            delay={0.15}
+          >
+            felixvnolasco.com
+          </RevealText>
+        </header>
+
+        <main>
         <section className="relative flex min-h-screen flex-col px-5 py-8 sm:px-8 lg:gap-16">
-          <header className="flex items-center justify-between gap-6 font-geist-mono text-xs font-semibold uppercase tracking-normal">
-            {/* <a href="#" className="whitespace-nowrap text-white">
-              INICIO
-            </a> */}
-
-            <nav
-              className="hidden items-center gap-8 text-[#a6a6a6] sm:flex"
-              aria-label="Main navigation"
-            >
-              <a href="#skills" className="duration-150 hover:text-white">
-                Skills
-              </a>
-              <a href="#projects" className="duration-150 hover:text-white">
-                Projects
-              </a>
-              <a href="#contact" className="duration-150 hover:text-white">
-                Contact
-              </a>
-            </nav>
-
-            <a
-              href="https://felixvnolasco.com"
-              className="hidden text-white sm:block"
-            >
-              felixvnolasco.com
-            </a>
-          </header>
 
           <h2 className="sr-only">{portfolio.owner.name}</h2>
 
           <div className="grid flex-1 content-center gap-2 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,36%)] lg:gap-12 lg:py-16">
             <div className="min-w-0 order-2 lg:order-1">
-              <h1 className="font-anton text-[clamp(5rem,13vw,156px)] uppercase leading-[0.88] tracking-normal lg:block hidden">
+              <RevealText
+                as="h1"
+                className="hidden font-anton text-[clamp(5rem,13vw,156px)] uppercase leading-[0.88] tracking-normal lg:block"
+                variant="hero"
+              >
                 PORTFOLIO
-              </h1>
+              </RevealText>
 
               <div className="mt-2 max-w-[390px] lg:ml-auto lg:mt-[clamp(3rem,10vh,7.5rem)]">
-                <p className="font-geist text-[22px] font-medium leading-[1.25] text-white">
+                <RevealText
+                  as="p"
+                  className="font-geist text-[22px] font-medium leading-[1.25] text-white"
+                  variant="body"
+                  delay={0.12}
+                >
                   Self-motivated, goal-oriented developer building reliable web
                   products across frontend, backend and commerce workflows.
-                </p>
-                <p className="mt-5 font-geist-mono text-xs font-medium leading-[1.6] text-[#a6a6a6]">
+                </RevealText>
+                <RevealText
+                  as="p"
+                  className="mt-5 font-geist-mono text-xs font-medium leading-[1.6] text-[#a6a6a6]"
+                  variant="body"
+                  delay={0.18}
+                >
                   React / Typescript / NextJS / Convex / Vite <br /> Spec Driven Development / Harness Design
                   <br /> MCP / AI Agents / Shopify Liquid / SQL
-                </p>
+                </RevealText>
               </div>
             </div>
 
             <aside className="min-w-0 lg:pt-0 lg:pl-20 order-1 lg:order-2">
-              <p
+              <RevealText
+                as="p"
                 className="text-outline font-anton text-[clamp(4.2rem,4.5vw,156px)] uppercase leading-[0.88] tracking-normal text-transparent"
                 aria-hidden="true"
+                variant="heading"
               >
                 SENIOR SOFTWARE DEVELOPER
-              </p>
-              <p className="mt-3 font-anton text-[clamp(3.8rem,7vw,92px)] uppercase leading-[0.9] tracking-normal">
+              </RevealText>
+              <RevealText
+                as="p"
+                className="mt-3 font-anton text-[clamp(3.8rem,7vw,92px)] uppercase leading-[0.9] tracking-normal"
+                variant="hero"
+                delay={0.1}
+              >
                 FELIX VEGA
-              </p>
+              </RevealText>
 
               <div className="mt-5 aspect-square w-[clamp(6.5rem,12vw,8.25rem)] overflow-hidden bg-[#181818]">
                 <div className="relative h-full w-full">
@@ -245,54 +323,44 @@ const Home: NextPage = () => {
                 </div>
               </div>
 
-              <p className="mt-5 max-w-[314px] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]">
+              <RevealText
+                as="p"
+                className="mt-5 max-w-[314px] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
+                variant="body"
+                delay={0.18}
+              >
                 Web apps / ecommerce / product interfaces
-              </p>
+              </RevealText>
             </aside>
           </div>
 
           <div className="mt-auto flex flex-col gap-8 pb-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-wrap gap-7 font-geist-mono text-[13px] font-semibold uppercase">
-              <a
+              <RevealText
+                as="a"
                 href={linkedInLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#25D366]"
+                variant="link"
               >
                 LINKEDIN
-              </a>
-              <a href={emailLink} className="hover:text-[#25D366]">
-                EMAIL
-              </a>
-              <span>MEXICO / REMOTE</span>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href={whatsAppLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-[4.5rem] flex-1 items-center justify-center bg-[#25D366] px-8 text-center font-geist-mono text-[13px] font-bold uppercase text-black sm:min-w-[13rem]"
-              >
-                SEND WHATSAPP
-              </a>
-
-              {/* linkedin */}
-              <a
-                href={linkedInLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-[4.5rem] flex-1 items-center justify-center bg-[#0A66C2] px-8 text-center font-geist-mono text-[13px] font-bold uppercase text-white sm:min-w-[13rem]"
-              >
-                LINKEDIN
-              </a>
-              <a
+              </RevealText>
+              <RevealText
+                as="a"
                 href={emailLink}
-                className="flex min-h-[4.5rem] flex-1 items-center justify-center bg-white px-8 text-center font-geist-mono text-[13px] font-bold uppercase text-black sm:min-w-[13rem]"
+                className="hover:text-[#25D366]"
+                variant="link"
+                delay={0.05}
               >
-                SEND ME AN EMAIL
-              </a>
+                EMAIL
+              </RevealText>
+              <RevealText as="span" variant="link" delay={0.1}>
+                MEXICO / REMOTE
+              </RevealText>
             </div>
+
+            <ContactButtons delay={0.18} />
           </div>
         </section>
 
@@ -303,37 +371,55 @@ const Home: NextPage = () => {
           <h2 className="sr-only">Skills</h2>
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.7fr)] lg:items-start lg:gap-16">
             <div className="space-y-10">
-              <p className="font-anton text-[clamp(5rem,14vw,190px)] uppercase leading-[0.86]">
+              <RevealText
+                as="p"
+                className="font-anton text-[clamp(5rem,14vw,190px)] uppercase leading-[0.86]"
+                variant="heading"
+              >
                 STACK
-              </p>
+              </RevealText>
               {/* <p
                 className="text-outline -mt-4 font-anton text-[clamp(4rem,8vw,96px)] uppercase leading-[0.9] text-transparent lg:absolute lg:left-[680px] lg:top-[84px] lg:mt-0"
                 aria-hidden="true"
               >
                 CAPABILITIES
               </p> */}
-              <p className="font-geist-mono text-xs font-bold uppercase">
+              <RevealText
+                as="p"
+                className="font-geist-mono text-xs font-bold uppercase"
+                variant="link"
+                delay={0.08}
+              >
                 SKILLS
-              </p>
+              </RevealText>
             </div>
 
             <div className="grid gap-12">
-              <p className="max-w-[546px] font-geist text-2xl font-medium leading-[1.25]">
+              <RevealText
+                as="p"
+                className="max-w-[546px] font-geist text-2xl font-medium leading-[1.25]"
+                variant="body"
+              >
                 I build web applications, internal tools and ecommerce experiences
                 with a practical bias: clean architecture, useful interfaces and
                 enough backend depth to ship complete solutions.
-              </p>
+              </RevealText>
 
               <div className="grid gap-10 md:grid-cols-3 lg:gap-[clamp(2rem,5vw,4.25rem)]">
-                {stackItems.map((item) => (
-                  <article key={item.title}>
+                {stackItems.map((item, index) => (
+                  <RevealText
+                    as="article"
+                    key={item.title}
+                    variant="card"
+                    delay={index * 0.06}
+                  >
                     <h3 className="font-geist-mono text-xs font-bold uppercase">
                       {item.title}
                     </h3>
                     <p className="mt-5 font-geist text-xl font-medium leading-[1.3] text-[#a6a6a6]">
                       {item.description}
                     </p>
-                  </article>
+                  </RevealText>
                 ))}
               </div>
             </div>
@@ -346,47 +432,66 @@ const Home: NextPage = () => {
         >
           <h2 className="sr-only">Featured Projects</h2>
           <div className="flex flex-col gap-1">
-            <h2 className="font-anton text-[clamp(4.5rem,12vw,178px)] uppercase leading-[0.86]">
+            <RevealText
+              as="h2"
+              className="font-anton text-[clamp(4.5rem,12vw,178px)] uppercase leading-[0.86]"
+              variant="heading"
+            >
               FEATURED PROJECTS
-            </h2>
+            </RevealText>
           </div>
 
           <div className="mx-auto mt-16 grid w-full  gap-12  lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.9fr)] lg:gap-4">
             <div className="lg:flex flex-col gap-5 hidden">
-              {leftProjects.map((project) => (
-                <FeaturedProjectBento
+              {leftProjects.map((project, index) => (
+                <RevealText
+                  as="div"
                   key={project.href}
-                  href={project.href}
-                  category={project.category}
-                  title={project.name}
-                  description={project.description}
-                  heroImage={project.image}
-                  supportImage={project.supportImage}
-                  year={project.year}
-                />
+                  variant="card"
+                  delay={index * 0.08}
+                >
+                  <FeaturedProjectBento
+                    href={project.href}
+                    category={project.category}
+                    title={project.name}
+                    description={project.description}
+                    heroImage={project.image}
+                    supportImage={project.supportImage}
+                    year={project.year}
+                  />
+                </RevealText>
               ))}
             </div>
 
             <div className="lg:hidden flex-col gap-5 flex">              
-              {leftProjects.map((project) => (
-                <FeaturedProjectHorizontal
+              {leftProjects.map((project, index) => (
+                <RevealText
+                  as="div"
                   key={project.href}
-                  href={project.href}
-                  category={project.category}
-                  title={project.name}
-                  description={project.description}
-                  image={project.image}
-                  year={project.year}
-                />
+                  variant="card"
+                  delay={index * 0.08}
+                >
+                  <FeaturedProjectHorizontal
+                    href={project.href}
+                    category={project.category}
+                    title={project.name}
+                    description={project.description}
+                    image={project.image}
+                    year={project.year}
+                  />
+                </RevealText>
               ))}
             </div>
             <div className="flex flex-col gap-8">
-              {rightProjects.map((project) => (
+              {rightProjects.map((project, index) => (
                 <Link key={project.href} href={project.href} passHref>
-                  <a
+                  <RevealText
+                    as="a"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-white"
+                    variant="card"
+                    delay={index * 0.06}
                   >
                     <FeaturedProjectHorizontal
                       href={project.href}
@@ -396,12 +501,13 @@ const Home: NextPage = () => {
                       description={project.description}
                       image={project.image}
                     />
-                  </a>
+                  </RevealText>
                 </Link>
               ))}
             </div>
           </div>
         </section>
+        </main>
 
         <footer
           className="px-5 py-16 sm:px-8 lg:py-24"
@@ -409,42 +515,81 @@ const Home: NextPage = () => {
         >
           <h2 className="sr-only">Get in touch</h2>
           <div className="grid gap-12 lg:grid-cols-[minmax(10rem,0.7fr)_minmax(18rem,1fr)_minmax(18rem,0.9fr)] lg:items-start lg:gap-16">
-            <p className="font-geist-mono text-xs font-bold uppercase text-white">
+            <RevealText
+              as="p"
+              className="font-geist-mono text-xs font-bold uppercase text-white"
+              variant="link"
+            >
               AVAILABLE FOR NEW OPPORTUNITIES
-            </p>
-            <p className="max-w-[430px] font-geist text-[22px] font-medium leading-[1.3] text-[#a6a6a6]">
+            </RevealText>
+            <RevealText
+              as="p"
+              className="max-w-[430px] font-geist text-[22px] font-medium leading-[1.3] text-[#a6a6a6]"
+              variant="body"
+              delay={0.06}
+            >
               Send a note or connect through LinkedIn.
-            </p>
-            <h2 className="font-anton text-[clamp(4.5rem,9vw,116px)] uppercase leading-[0.9]">
+            </RevealText>
+            <RevealText
+              as="h2"
+              className="font-anton text-[clamp(4.5rem,9vw,116px)] uppercase leading-[0.9]"
+              variant="heading"
+              delay={0.12}
+            >
               LET&apos;S TALK
-            </h2>
+            </RevealText>
           </div>
 
           <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+            <ContactButtons />
+
             <div className="flex flex-wrap gap-8 font-geist-mono text-[13px] font-bold uppercase">
-              <a
+              <RevealText
+                as="a"
                 href={linkedInLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#25D366]"
+                variant="link"
               >
                 LINKEDIN
-              </a>
-              <a href={emailLink} className="hover:text-[#25D366]">
+              </RevealText>
+              <RevealText
+                as="a"
+                href={emailLink}
+                className="hover:text-[#25D366]"
+                variant="link"
+                delay={0.05}
+              >
                 EMAIL
-              </a>
-              <a href="https://github.com/felixvnolasco" className="hover:text-[#25D366]">
+              </RevealText>
+              <RevealText
+                as="a"
+                href="https://github.com/felixvnolasco"
+                className="hover:text-[#25D366]"
+                variant="link"
+                delay={0.1}
+              >
                 GITHUB
-              </a>
-              {/* whatsapp */}
-              <a href="https://wa.me/+525578136020" className="hover:text-[#25D366]">
+              </RevealText>
+              <RevealText
+                as="a"
+                href="https://wa.me/+525578136020"
+                className="hover:text-[#25D366]"
+                variant="link"
+                delay={0.15}
+              >
                 WHATSAPP
-              </a>
+              </RevealText>
             </div>
 
-            <p className="font-geist-mono text-xs font-medium text-[#a6a6a6]">
+            <RevealText
+              as="p"
+              className="font-geist-mono text-xs font-medium text-[#a6a6a6]"
+              variant="body"
+            >
               Felix Vega / Senior Software Developer
-            </p>
+            </RevealText>
           </div>
         </footer>
       </div>
