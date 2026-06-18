@@ -26,4 +26,13 @@ describe("home page", () => {
     expect(container.querySelector("#projects")).toBeInTheDocument();
     expect(container.querySelector("#contact")).toBeInTheDocument();
   });
+
+  it("keeps only the social buttons in the footer", () => {
+    const { container } = render(<Home />);
+    const footer = container.querySelector("footer");
+
+    expect(footer).not.toBeNull();
+    expect(footer?.querySelectorAll("a")).toHaveLength(3);
+    expect(footer?.querySelectorAll("svg")).toHaveLength(3);
+  });
 });

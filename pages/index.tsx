@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { portfolio } from "../data/portfolio";
 import {
   AnimatedButton,
@@ -49,7 +51,7 @@ const leftProjects: EditorialProject[] = [
     category: "Web Application",
     description:
       "Real-time budget control, progress tracking, and on-site reporting — all in one place. Stop guessing. Start managing.",
-    href: "https://www.ogarrioarquitectos.com/",
+    href: "https://www.ogc.mx/",
     image: OGC_1,
     supportImage: OGC_2,
   },
@@ -190,6 +192,7 @@ const ContactButtons = ({ delay = 0 }: { delay?: number }) => (
       rel="noopener noreferrer"
       tone="whatsapp"
     >
+      <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
       SEND WHATSAPP
     </AnimatedButton>
 
@@ -199,9 +202,11 @@ const ContactButtons = ({ delay = 0 }: { delay?: number }) => (
       rel="noopener noreferrer"
       tone="linkedin"
     >
+      <FaLinkedinIn className="h-5 w-5 shrink-0" aria-hidden="true" />
       LINKEDIN
     </AnimatedButton>
     <AnimatedButton href={emailLink} tone="email">
+      <MdEmail className="h-5 w-5 shrink-0" aria-hidden="true" />
       SEND ME AN EMAIL
     </AnimatedButton>
   </RevealText>
@@ -268,7 +273,7 @@ const Home: NextPage = () => {
             <div className="min-w-0 order-2 lg:order-1">
               <RevealText
                 as="h1"
-                className="hidden font-anton text-[clamp(5rem,13vw,156px)] uppercase leading-[0.88] tracking-normal lg:block"
+                className="font-anton text-[clamp(4.4rem,18vw,8rem)] uppercase leading-[0.88] tracking-normal lg:text-[clamp(6rem,10vw,156px)]"
                 variant="hero"
               >
                 PORTFOLIO
@@ -296,10 +301,10 @@ const Home: NextPage = () => {
               </div>
             </div>
 
-            <aside className="min-w-0 lg:pt-0 lg:pl-20 order-1 lg:order-2">
+            <aside className="order-1 min-w-0 lg:order-2 lg:pl-8 lg:pt-0 xl:pl-20">
               <RevealText
                 as="p"
-                className="text-outline font-anton text-[clamp(4.2rem,4.5vw,156px)] uppercase leading-[0.88] tracking-normal text-transparent"
+                className="text-outline break-words font-anton text-[clamp(3.4rem,14vw,5.5rem)] uppercase leading-[0.88] tracking-normal text-transparent lg:text-[clamp(3.5rem,5vw,5.5rem)]"
                 aria-hidden="true"
                 variant="heading"
               >
@@ -373,7 +378,7 @@ const Home: NextPage = () => {
             <div className="space-y-10">
               <RevealText
                 as="p"
-                className="font-anton text-[clamp(5rem,14vw,190px)] uppercase leading-[0.86]"
+                className="font-anton text-[clamp(4.5rem,14vw,9rem)] uppercase leading-[0.86] lg:text-[clamp(5rem,10vw,9rem)]"
                 variant="heading"
               >
                 STACK
@@ -434,7 +439,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col gap-1">
             <RevealText
               as="h2"
-              className="font-anton text-[clamp(4.5rem,12vw,178px)] uppercase leading-[0.86]"
+              className="font-anton text-[clamp(3.5rem,15vw,7rem)] uppercase leading-[0.86] sm:text-[clamp(4rem,9.3vw,8.25rem)]"
               variant="heading"
             >
               FEATURED PROJECTS
@@ -542,46 +547,6 @@ const Home: NextPage = () => {
 
           <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <ContactButtons />
-
-            <div className="flex flex-wrap gap-8 font-geist-mono text-[13px] font-bold uppercase">
-              <RevealText
-                as="a"
-                href={linkedInLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#25D366]"
-                variant="link"
-              >
-                LINKEDIN
-              </RevealText>
-              <RevealText
-                as="a"
-                href={emailLink}
-                className="hover:text-[#25D366]"
-                variant="link"
-                delay={0.05}
-              >
-                EMAIL
-              </RevealText>
-              <RevealText
-                as="a"
-                href="https://github.com/felixvnolasco"
-                className="hover:text-[#25D366]"
-                variant="link"
-                delay={0.1}
-              >
-                GITHUB
-              </RevealText>
-              <RevealText
-                as="a"
-                href="https://wa.me/+525578136020"
-                className="hover:text-[#25D366]"
-                variant="link"
-                delay={0.15}
-              >
-                WHATSAPP
-              </RevealText>
-            </div>
 
             <RevealText
               as="p"
