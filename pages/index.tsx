@@ -7,6 +7,7 @@ import {
   AnimatedButton,
   FeaturedProjectBento,
   FeaturedProjectHorizontal,
+  Header,
   RevealText,
 } from "../components";
 
@@ -137,19 +138,67 @@ const rightProjects: EditorialProjectHorizontal[] = [
 
 const stackItems = [
   {
-    title: "PROGRAMMING LANGUAGES",
+    title: "Frontend",
     description:
-      "Typescript as primary. Python, SQL and Liquid when the project needs it.",
+      "React, TypeScript, Next.js, Vue.js, Angular, Vite, TailwindCSS, CSS, SCSS",
   },
   {
-    title: "FRONTEND",
-    description:
-      "NextJS, ReactJs and VueJs for interfaces that are maintainable and fast to iterate.",
+    title: "Backend & Data",
+    description: "Convex, SQL, MongoDB, Python, C#, .NET Core, ASP.NET MVC",
   },
   {
-    title: "BACKEND",
+    title: "UI & State Management",
     description:
-      "Convex, SQL, Express.js and Prisma for product flows, APIs and data-heavy tools.",
+      "Radix UI, shadcn/ui, TanStack Table, Redux Toolkit, Zustand, React Hook Form, Zod",
+  },
+  {
+    title: "Auth & Security",
+    description:
+      "Clerk, Role-Based Access Control, Protected Routes, User Management, JWT",
+  },
+  {
+    title: "E-commerce & CMS",
+    description: "Shopify, Liquid 2.0, Technical SEO",
+  },
+  {
+    title: "Cloud & Tools",
+    description: "AWS, Vercel, Git, GitHub",
+  },
+  {
+    title: "AI-Assisted Development",
+    description:
+      "Spec-Driven Development, Claude Code, OpenCode, Harness Engineering",
+  },
+];
+
+const careerItems = [
+  {
+    year: "2023",
+    title: "Software Developer",
+    period: "Dec 2023 - Present",
+    company: "Polygon Agency",
+    highlights: [
+      "Develop full-stack web applications and internal business dashboards using React, TypeScript, Next.js, Vite, TailwindCSS, Convex, and Clerk.",
+      "Build financial and operational modules for project management, budget control, transactions, payments, sales workflows, document management, and reporting.",
+      "Implement role-based access control, protected routes, user management, and secure authorization flows for admin, user, and viewer roles.",
+      "Design reusable UI components, tables, modals, forms, filters, charts, and dashboards using Radix UI, TanStack Table, Zustand, React Hook Form, and Zod.",
+      "Create backend schemas, queries, mutations, and validation logic in Convex to support real-time data operations and business workflows.",
+      "Customize and develop Shopify storefronts using Liquid 2.0, improving usability, performance, and customer engagement.",
+      "Optimize websites for SEO, responsive design, accessibility, and Google PageSpeed performance.",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Software Developer",
+    period: "Apr 2022 - Dec 2023",
+    company: "Softtek",
+    highlights: [
+      "Automated data workflows using KNIME Analytics, Python, and SQL to improve operational efficiency and reduce manual processing.",
+      "Designed, maintained, and optimized relational databases to support reporting, data retrieval, and business analysis.",
+      "Built and executed SQL queries for data extraction, transformation, validation, and integrity checks.",
+      "Supported data-driven decision making by transforming complex datasets into structured and actionable information.",
+      "Collaborated with cross-functional teams to align technical solutions with business requirements.",
+    ],
   },
 ];
 
@@ -164,6 +213,9 @@ const whatsAppLink = "https://wa.me/+525578136020";
 const getImageSrc = (image: ImageSource) =>
   typeof image === "string" ? image : image.src;
 
+const splitSkillDescription = (description: string) =>
+  description.split(",").map((skill) => skill.trim());
+
 const ImageFill = ({
   src,
   alt,
@@ -175,7 +227,7 @@ const ImageFill = ({
   <img
     src={getImageSrc(src)}
     alt={alt}
-    className="absolute inset-0 h-full w-full object-cover"
+    className="absolute inset-0 h-full w-full object-cover text-[0px]"
   />
 );
 
@@ -212,218 +264,225 @@ const ContactButtons = ({ delay = 0 }: { delay?: number }) => (
   </RevealText>
 );
 
+const HeroActions = ({ delay = 0 }: { delay?: number }) => (
+  <RevealText
+    as="div"
+    className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+    variant="card"
+    delay={delay}
+  >
+    <AnimatedButton
+      href={whatsAppLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      tone="whatsapp"
+      className="sm:flex-none"
+    >
+      <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
+      SEND WHATSAPP
+    </AnimatedButton>
+
+    <a
+      href={linkedInLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex min-h-[3.75rem] items-center justify-center gap-3 rounded-lg border border-white/15 px-5 font-geist-mono text-[11px] font-bold uppercase text-white duration-200 hover:border-white hover:bg-white/10 sm:min-h-0 sm:px-4 sm:py-3"
+    >
+      <FaLinkedinIn className="h-4 w-4 shrink-0" aria-hidden="true" />
+      LINKEDIN
+    </a>
+  </RevealText>
+);
+
 const Home: NextPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div className="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-black">
-        <header className="sticky top-0 z-50 flex items-center justify-between gap-6 bg-black/85 px-5 py-5 font-geist-mono text-xs font-semibold uppercase tracking-normal backdrop-blur sm:px-8">
-          {/* <a href="#" className="whitespace-nowrap text-white">
-            INICIO
-          </a> */}
-
-          <nav
-            className="hidden items-center gap-8 text-[#a6a6a6] sm:flex"
-            aria-label="Main navigation"
-          >
-            <RevealText
-              as="a"
-              href="#skills"
-              className="duration-150 hover:text-white"
-              variant="link"
-            >
-              Skills
-            </RevealText>
-            <RevealText
-              as="a"
-              href="#projects"
-              className="duration-150 hover:text-white"
-              variant="link"
-              delay={0.05}
-            >
-              Projects
-            </RevealText>
-            <RevealText
-              as="a"
-              href="#contact"
-              className="duration-150 hover:text-white"
-              variant="link"
-              delay={0.1}
-            >
-              Contact
-            </RevealText>
-          </nav>
-
-          <RevealText
-            as="a"
-            href="https://felixvnolasco.com"
-            className="hidden text-white sm:block"
-            variant="link"
-            delay={0.15}
-          >
-            felixvnolasco.com
-          </RevealText>
-        </header>
+        <Header />
 
         <main>
         <section className="relative flex min-h-screen flex-col px-5 py-8 sm:px-8 lg:gap-16">
 
           <h2 className="sr-only">{portfolio.owner.name}</h2>
 
-          <div className="grid flex-1 content-center gap-2 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,36%)] lg:gap-12 lg:py-16">
-            <div className="min-w-0 order-2 lg:order-1">
-              <RevealText
-                as="h1"
-                className="font-anton text-[clamp(4.4rem,18vw,8rem)] uppercase leading-[0.88] tracking-normal lg:text-[clamp(6rem,10vw,156px)]"
-                variant="hero"
-              >
-                PORTFOLIO
-              </RevealText>
-
-              <div className="mt-2 max-w-[390px] lg:ml-auto lg:mt-[clamp(3rem,10vh,7.5rem)]">
-                <RevealText
-                  as="p"
-                  className="font-geist text-[22px] font-medium leading-[1.25] text-white"
-                  variant="body"
-                  delay={0.12}
-                >
-                  Self-motivated, goal-oriented developer building reliable web
-                  products across frontend, backend and commerce workflows.
-                </RevealText>
-                <RevealText
-                  as="p"
-                  className="mt-5 font-geist-mono text-xs font-medium leading-[1.6] text-[#a6a6a6]"
-                  variant="body"
-                  delay={0.18}
-                >
-                  React / Typescript / NextJS / Convex / Vite <br /> Spec Driven Development / Harness Design
-                  <br /> MCP / AI Agents / Shopify Liquid / SQL
-                </RevealText>
-              </div>
-            </div>
-
-            <aside className="order-1 min-w-0 lg:order-2 lg:pl-8 lg:pt-0 xl:pl-20">
-              <RevealText
-                as="p"
-                className="text-outline break-words font-anton text-[clamp(3.4rem,14vw,5.5rem)] uppercase leading-[0.88] tracking-normal text-transparent lg:text-[clamp(3.5rem,5vw,5.5rem)]"
-                aria-hidden="true"
-                variant="heading"
-              >
-                SENIOR SOFTWARE DEVELOPER
-              </RevealText>
-              <RevealText
-                as="p"
-                className="mt-3 font-anton text-[clamp(3.8rem,7vw,92px)] uppercase leading-[0.9] tracking-normal"
-                variant="hero"
-                delay={0.1}
-              >
-                FELIX VEGA
-              </RevealText>
-
-              <div className="mt-5 aspect-square w-[clamp(6.5rem,12vw,8.25rem)] overflow-hidden bg-[#181818]">
-                <div className="relative h-full w-full">
+          <div className="grid flex-1 content-center gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-16">
+            <div className="max-w-full min-w-0">
+              <div className="flex items-center gap-4">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden bg-[#181818] lg:hidden">
                   <ImageFill
                     src={portfolio.owner.avatar.src}
                     alt={portfolio.owner.avatar.alt}
                   />
                 </div>
+
+                <RevealText
+                  as="p"
+                  className="font-geist-mono text-xs font-bold uppercase leading-[1.5] text-[#a6a6a6]"
+                  variant="link"
+                >
+                  Senior Software Developer
+                </RevealText>
               </div>
 
               <RevealText
-                as="p"
-                className="mt-5 max-w-[314px] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
-                variant="body"
-                delay={0.18}
+                as="h1"
+                className="mt-4 max-w-full font-anton text-[clamp(3.6rem,16vw,6.25rem)] uppercase leading-[0.86] tracking-normal sm:text-[clamp(6rem,16vw,11rem)] lg:text-[clamp(7rem,11vw,10rem)]"
+                variant="hero"
+                delay={0.1}
               >
-                Web apps / ecommerce / product interfaces
+                <span className="block sm:inline">FELIX</span>{" "}
+                <span className="block sm:inline">VEGA</span>
               </RevealText>
-            </aside>
-          </div>
 
-          <div className="mt-auto flex flex-col gap-8 pb-4 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-wrap gap-7 font-geist-mono text-[13px] font-semibold uppercase">
               <RevealText
-                as="a"
-                href={linkedInLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#25D366]"
-                variant="link"
+                as="p"
+                className="mt-6 w-full max-w-full break-words font-geist text-[20px] font-medium leading-[1.25] text-white sm:max-w-[38rem] sm:text-[28px] lg:text-[32px]"
+                variant="body"
+                delay={0.16}
               >
-                LINKEDIN
+                Building reliable web apps, ecommerce experiences and product
+                interfaces across frontend, backend and commerce workflows.
               </RevealText>
+
               <RevealText
-                as="a"
-                href={emailLink}
-                className="hover:text-[#25D366]"
-                variant="link"
-                delay={0.05}
+                as="p"
+                className="mt-5 max-w-[34rem] font-geist-mono text-[11px] font-medium uppercase leading-[1.7] text-[#a6a6a6] sm:text-xs"
+                variant="body"
+                delay={0.22}
               >
-                EMAIL
+                React / TypeScript / Next.js / Convex / Shopify / SQL
               </RevealText>
-              <RevealText as="span" variant="link" delay={0.1}>
-                MEXICO / REMOTE
-              </RevealText>
+
+              <HeroActions delay={0.28} />
             </div>
 
-            <ContactButtons delay={0.18} />
+            <aside className="hidden lg:block">
+              <RevealText as="div" variant="card" delay={0.2}>
+                <div className="aspect-square w-full overflow-hidden bg-[#181818]">
+                  <div className="relative h-full w-full">
+                    <ImageFill
+                      src={portfolio.owner.avatar.src}
+                      alt={portfolio.owner.avatar.alt}
+                    />
+                  </div>
+                </div>
+
+                <p className="mt-5 font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]">
+                  Web apps / ecommerce / product interfaces
+                </p>
+              </RevealText>
+            </aside>
           </div>
         </section>
 
         <section
-          className="px-5 py-14 sm:px-8 lg:py-24"
+          className="px-5 py-16 sm:px-8 lg:py-24"
           id="skills"
         >
           <h2 className="sr-only">Skills</h2>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.7fr)] lg:items-start lg:gap-16">
-            <div className="space-y-10">
+          <div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+            <div>
               <RevealText
                 as="p"
-                className="font-anton text-[clamp(4.5rem,14vw,9rem)] uppercase leading-[0.86] lg:text-[clamp(5rem,10vw,9rem)]"
-                variant="heading"
-              >
-                STACK
-              </RevealText>
-              {/* <p
-                className="text-outline -mt-4 font-anton text-[clamp(4rem,8vw,96px)] uppercase leading-[0.9] text-transparent lg:absolute lg:left-[680px] lg:top-[84px] lg:mt-0"
-                aria-hidden="true"
-              >
-                CAPABILITIES
-              </p> */}
-              <RevealText
-                as="p"
-                className="font-geist-mono text-xs font-bold uppercase"
+                className="font-geist-mono text-sm font-bold uppercase leading-none tracking-normal text-white sm:text-base"
                 variant="link"
-                delay={0.08}
               >
                 SKILLS
               </RevealText>
-            </div>
 
-            <div className="grid gap-12">
               <RevealText
                 as="p"
-                className="max-w-[546px] font-geist text-2xl font-medium leading-[1.25]"
+                className="mt-4 max-w-[15rem] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
                 variant="body"
+                delay={0.08}
               >
-                I build web applications, internal tools and ecommerce experiences
-                with a practical bias: clean architecture, useful interfaces and
-                enough backend depth to ship complete solutions.
+                Full-stack toolkit organized for quick scanning.
               </RevealText>
+            </div>
 
-              <div className="grid gap-10 md:grid-cols-3 lg:gap-[clamp(2rem,5vw,4.25rem)]">
-                {stackItems.map((item, index) => (
+            <div className="grid gap-3 border-t-2 border-white pt-6 sm:grid-cols-2 lg:grid-cols-3">
+              {stackItems.map((item, index) => (
+                <RevealText
+                  as="article"
+                  key={item.title}
+                  className="border border-white/15 p-4"
+                  variant="card"
+                  delay={index * 0.06}
+                >
+                  <h3 className="font-geist-mono text-[11px] font-bold uppercase leading-[1.35] text-white">
+                    {item.title}
+                  </h3>
+
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {splitSkillDescription(item.description).map((skill) => (
+                      <li
+                        key={`${item.title}-${skill}`}
+                        className="rounded-full border border-white/10 px-3 py-1 font-geist text-sm font-medium leading-tight text-[#d6d6d6]"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </RevealText>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="px-5 py-16 sm:px-8 lg:py-24"
+          id="career"
+        >
+          <h2 className="sr-only">Career Record</h2>
+          <RevealText
+            as="p"
+            className="flex items-center gap-4 font-geist-mono text-sm font-bold uppercase leading-none tracking-normal text-white sm:text-base"
+            variant="link"
+          >            
+            <span>JOB HISTORY</span>
+          </RevealText>
+
+          <div className="mt-10 h-[2px] w-full bg-white" aria-hidden="true" />
+
+          <div className="mt-12">
+            <div className="relative max-w-[980px] lg:ml-3">
+              <div
+                className="absolute bottom-0 left-[1rem] top-6 w-[2px] bg-white sm:left-[1.25rem]"
+                aria-hidden="true"
+              />
+
+              <div className="grid gap-0">
+                {careerItems.map((item, index) => (
                   <RevealText
                     as="article"
-                    key={item.title}
+                    key={`${item.year}-${item.title}`}
+                    className="relative grid grid-cols-[4.25rem_minmax(0,1fr)] gap-12 pb-14 last:pb-0 sm:grid-cols-[7.75rem_minmax(0,1fr)] sm:gap-7"
                     variant="card"
                     delay={index * 0.06}
                   >
-                    <h3 className="font-geist-mono text-xs font-bold uppercase">
-                      {item.title}
-                    </h3>
-                    <p className="mt-5 font-geist text-xl font-medium leading-[1.3] text-[#a6a6a6]">
-                      {item.description}
-                    </p>
+                    <div className="relative pt-1">
+                      <span
+                        className="absolute left-0 top-4 h-[2px] w-10 bg-white sm:w-14"
+                        aria-hidden="true"
+                      />
+                      <span className="block pl-12 font-geist text-xl font-bold leading-none text-white sm:pl-16 sm:text-2xl">
+                        {item.year}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="font-geist text-[clamp(1.8rem,5.8vw,2rem)] font-bold leading-[1.05] tracking-normal text-white sm:text-[2rem]">
+                        {item.title} | {item.period}
+                      </h3>
+                      <p className="mt-3 font-geist text-xl font-medium leading-[1.25] text-white sm:text-2xl">
+                        {item.company}
+                      </p>
+                      <ul className="mt-7 max-w-[760px] list-disc space-y-2 pl-5 font-geist text-base font-medium leading-[1.45] text-[#a6a6a6] sm:text-lg">
+                        {item.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </RevealText>
                 ))}
               </div>

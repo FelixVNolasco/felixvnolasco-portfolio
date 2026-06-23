@@ -16,6 +16,9 @@ test("home page loads and navigates through section anchors", async ({
   await page.getByRole("link", { name: "Skills" }).click();
   await expect(page.locator("#skills")).toBeInViewport();
 
+  await page.getByRole("link", { name: "Career" }).click();
+  await expect(page.locator("#career")).toBeInViewport();
+
   await page.getByRole("link", { name: "Projects" }).click();
   await expect(page.locator("#projects")).toBeInViewport();
 

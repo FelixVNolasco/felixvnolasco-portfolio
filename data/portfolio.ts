@@ -49,7 +49,7 @@ export const portfolio: Portfolio = {
     name: "Felix Enrique Vega Nolasco",
     role: "Sr. Software Developer",
     avatar: {
-      src: "https://media.licdn.com/dms/image/v2/D5603AQFojN6lxrl3Sg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1707966633734?e=1782345600&v=beta&t=z9PHmICIDgufFcm7gn2LEKeHkCCuahd7oKEryZJWljo",
+      src: "/assests/profile-avatar.png",
       alt: "Felix Enrique Vega Nolasco avatar",
     },
     bio: "Senior Software Developer focused on full-stack web applications, internal business dashboards, financial and operational modules, secure role-based workflows, and high-performance Shopify storefronts.",
@@ -64,6 +64,7 @@ export const portfolio: Portfolio = {
   navigation: [
     { label: "Home", href: "#" },
     { label: "Skills", href: "#skills" },
+    { label: "Career", href: "#career" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ],

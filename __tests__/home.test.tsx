@@ -12,6 +12,9 @@ describe("home page", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Skills" })).toBeInTheDocument();
     expect(
+      screen.getByRole("heading", { name: "Career Record" })
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("heading", { name: "Featured Projects" })
     ).toBeInTheDocument();
     expect(
@@ -23,6 +26,7 @@ describe("home page", () => {
     const { container } = render(<Home />);
 
     expect(container.querySelector("#skills")).toBeInTheDocument();
+    expect(container.querySelector("#career")).toBeInTheDocument();
     expect(container.querySelector("#projects")).toBeInTheDocument();
     expect(container.querySelector("#contact")).toBeInTheDocument();
   });
