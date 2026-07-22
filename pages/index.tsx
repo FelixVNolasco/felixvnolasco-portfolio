@@ -358,15 +358,6 @@ const Home: NextPage = () => {
 
             <aside className="hidden lg:block">
               <RevealText as="div" variant="card" delay={0.2}>
-                <div className="aspect-square w-full overflow-hidden bg-[#181818]">
-                  <div className="relative h-full w-full">
-                    <ImageFill
-                      src={portfolio.owner.avatar.src}
-                      alt={portfolio.owner.avatar.alt}
-                    />
-                  </div>
-                </div>
-
                 <p className="mt-5 font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]">
                   Web apps / ecommerce / product interfaces
                 </p>
