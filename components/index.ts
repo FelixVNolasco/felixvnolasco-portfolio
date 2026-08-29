@@ -1,4 +1,5 @@
 export { default as Header } from "./Header/Header.component";
+export { default as HeroBackdrop } from "./HeroBackdrop/HeroBackdrop.component";
 export { default as About } from "./About/About.component";
 export { default as Skills } from "./Skills/Skills.component";
 export { default as Projects } from "./Projects/Projects.component";

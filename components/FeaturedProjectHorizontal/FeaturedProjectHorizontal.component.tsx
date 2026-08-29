@@ -29,7 +29,7 @@ const ImageFill = ({
   <img
     src={getImageSrc(src)}
     alt={alt}
-    className="absolute inset-0 h-full w-full object-cover"
+    className="absolute inset-0 h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
   />
 );
 
@@ -44,27 +44,23 @@ const FeaturedProjectHorizontal = ({
 }: FeaturedProjectHorizontalProps) => {
   const card = (
     <article
-      className={`grid w-full gap-4 overflow-hidden rounded-[10px] bg-[#111111] p-[14px] text-white sm:grid-cols-[minmax(12rem,1.25fr)_minmax(0,1fr)] ${className}`}
+      className={`grid gap-5 border-t border-white/20 pt-6 text-white sm:grid-cols-[minmax(10rem,13rem)_minmax(0,1fr)] sm:gap-8 ${className}`}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-lg sm:aspect-auto">
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#111111] sm:aspect-[4/3]">
         <ImageFill src={image} alt={`${title} project`} />
       </div>
 
-      <div className="flex min-w-0 flex-col justify-between gap-10 overflow-hidden rounded-lg bg-[#181818] p-[clamp(1rem,3vw,1.375rem)]">
-        <div className="flex flex-col gap-[14px]">
-          <div className="flex items-center justify-between gap-4 font-geist-mono text-xs font-bold uppercase leading-[1.2]">
-            <p className="text-[#ff8400]">{category}</p>
-            <p className="text-[#9a9a9a]">{year}</p>
-          </div>
-
-          <h3 className="font-anton text-[clamp(2rem,4vw,2.125rem)] font-normal uppercase leading-[0.95]">
-            {title}
-          </h3>
-
-          <div className="h-1.5 w-14 rounded bg-[#ff8400] sm:w-16" />
+      <div className="flex min-w-0 flex-col">
+        <div className="flex items-baseline justify-between gap-4 font-geist-mono text-[11px] font-bold uppercase leading-[1.35]">
+          <p className="text-white">{category}</p>
+          <p className="text-[#a6a6a6]">{year}</p>
         </div>
 
-        <p className="font-geist text-sm font-medium leading-[1.34] text-[#bdbdbd]">
+        <h3 className="mt-3 font-geist text-[clamp(1.4rem,2.6vw,1.75rem)] font-bold leading-[1.1] tracking-normal text-white">
+          {title}
+        </h3>
+
+        <p className="mt-4 font-geist text-base font-medium leading-[1.45] text-[#a6a6a6]">
           {description}
         </p>
       </div>
@@ -73,7 +69,11 @@ const FeaturedProjectHorizontal = ({
 
   return (
     <Link href={href} passHref>
-      <a target="_blank" rel="noopener noreferrer" className="block w-full">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block w-full outline-none transition duration-200 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+      >
         {card}
       </a>
     </Link>

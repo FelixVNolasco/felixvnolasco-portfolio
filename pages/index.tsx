@@ -1,173 +1,61 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { leftProjects, rightProjects } from "../data/featuredProjects";
 import { portfolio } from "../data/portfolio";
 import {
-  AnimatedButton,
   FeaturedProjectBento,
   FeaturedProjectHorizontal,
   Header,
+  HeroBackdrop,
   RevealText,
 } from "../components";
-
-type EditorialProject = {
-  name: string;
-  year: string;
-  category: string;
-  description: string;
-  href: string;
-  image: ImageSource;
-  supportImage: ImageSource;
-};
-
-type EditorialProjectHorizontal = {
-  name: string;
-  year: string;
-  category: string;
-  description: string;
-  href: string;
-  image: ImageSource;  
-};
+import ContactFooter from "../components/ContactFooter/ContactFooter.component";
 
 type ImageSource = string | { src: string };
 
-const MOLIERE_HERO = "/projects/MoliereHero.webp";
-const HERO_NEW = "/projects/HeroNew.webp";
-const COPA_1 = "/projects/Banner_Horizontal-COPA.webp";
-const COPA_2 = "/projects/COPA-HERO.webp";
-const OGC_1 = "/projects/OGC-1.webp";
-const OGC_2 = "/projects/OGC-2.webp";
-const POLYGON_1 = "/projects/POLYGON-1.png";
-const EPI_1 = "/projects/EPI-1.png";
-const KAISER_1 = "/projects/KAISER-1.png";
-const TECNOVIDRIO_1 = "/projects/TECNOVIDRIO-1.webp";
-const OLYMPIA_1 = "/projects/olympia-1.png";
-const LARENA_1 = "/projects/LARENA-1.png";
-
-const leftProjects: EditorialProject[] = [
-    {
-    name: "OGC",
-    year: "2026",
-    category: "Web Application",
-    description:
-      "Real-time budget control, progress tracking, and on-site reporting — all in one place. Stop guessing. Start managing.",
-    href: "https://www.ogc.mx/",
-    image: OGC_1,
-    supportImage: OGC_2,
-  },
-    {
-    name: "Copa Padel",
-    year: "2023",
-    category: "E-commerce Website",
-    description:
-      "From this house, the game took shape and went out into the world. COPA Corcuera Pádel 1969® was created from a single idea: to share the origin of padel with the world.",
-    href: "https://copapadel.com/",
-    image: COPA_1,
-    supportImage: COPA_2,
-  },
-  {
-    name: "Grupo Amphytrion",
-    year: "2023",
-    category: "Hospitality Website",
-    description:
-      "Rent favorite spaces for private events in Mexico City",
-    href: "https://www.amphitryon.mx/",
-    image: MOLIERE_HERO,
-    supportImage:
-      HERO_NEW,
-  },
-];
-
-const rightProjects: EditorialProjectHorizontal[] = [
-  {
-    name: "GRUPO TECNOVIDRIO",
-    year: "2024",
-    category: "Corporate Website",
-    description:
-      "Digital presence to showcase glass and aluminum solutions with a clear service structure, business trust and straightforward navigation.",
-    href: "https://tecnovidrio-projects-eight.vercel.app/",
-    image: TECNOVIDRIO_1,    
-  },
-  {
-    name: "OLYMPIA GREEK",
-    year: "2024",
-    category: "Brand Website",
-    description:
-      "Olympia Greek Yogurt is a charming establishment dedicated to crafting creamy, authentic Greek yogurt that delights the palate and nourishes the body.",
-    href: "https://www.olympiagreekyogurt.com/",
-    image: OLYMPIA_1,
-  },
-  {
-    name: "LARENA",
-    year: "2025",
-    category: "Architecture Portfolio",
-    description:
-      "Brand page with an editorial focus to communicate proposal, catalog and contact points without losing a clean reading experience.",
-    href: "https://www.larena.mx/",
-    image: LARENA_1,
-  },
-  {
-    name: "EPI GROUP",
-    year: "2025",
-    category: "Corporate Website",
-    description:
-      "Web experience for a business group, organized to explain services, operational scope and institutional credibility.",
-    href: "https://cotizador-epi-group.vercel.app/",
-    image: EPI_1,
-  },
-    {
-    name: "Polygon Agency",
-    year: "2023",
-    category: "Creative Agency Website",
-    description:
-      "We help companies like yours with a unique marketing approach.",
-    href: "https://www.polygonag.com/",
-    image: POLYGON_1,    
-  },
-  {
-    name: "KAISER",
-    year: "2023",
-    category: "Brand Website",
-    description:
-      "",
-    href: "https://www.kaiser.com.mx/",
-    image: KAISER_1,
-  }
-];
-
 const stackItems = [
   {
-    title: "Frontend",
-    description:
-      "React, TypeScript, Next.js, Vue.js, Angular, Vite, TailwindCSS, CSS, SCSS",
+    title: "Interface",
+    subtitle: "Dashboards, storefronts, and reusable product UI.",
+    adjacent: false,
+    skills: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Vite",
+      "Tailwind",
+      "Radix UI",
+      "shadcn/ui",
+      "TanStack Table",
+      "React Hook Form",
+    ],
   },
   {
-    title: "Backend & Data",
-    description: "Convex, SQL, MongoDB, Python, C#, .NET Core, ASP.NET MVC",
+    title: "Systems",
+    subtitle: "Data, access control, and the services underneath.",
+    adjacent: false,
+    skills: [
+      "Convex",
+      "Clerk",
+      "SQL",
+      "Python",
+      "Zustand",
+      "Zod",
+      "JWT / RBAC",
+    ],
   },
   {
-    title: "UI & State Management",
-    description:
-      "Radix UI, shadcn/ui, TanStack Table, Redux Toolkit, Zustand, React Hook Form, Zod",
+    title: "Commerce",
+    subtitle: "Shopify builds, technical SEO, and where they ship.",
+    adjacent: false,
+    skills: ["Shopify", "Liquid 2.0", "Technical SEO", "Vercel", "AWS"],
   },
   {
-    title: "Auth & Security",
-    description:
-      "Clerk, Role-Based Access Control, Protected Routes, User Management, JWT",
-  },
-  {
-    title: "E-commerce & CMS",
-    description: "Shopify, Liquid 2.0, Technical SEO",
-  },
-  {
-    title: "Cloud & Tools",
-    description: "AWS, Vercel, Git, GitHub",
-  },
-  {
-    title: "AI-Assisted Development",
-    description:
-      "Spec-Driven Development, Claude Code, OpenCode, Harness Engineering",
+    title: "Next up",
+    subtitle:
+      "Adjacent skills with outsized demand — growing into them, not daily production.",
+    adjacent: true,
+    skills: ["Node.js", "PostgreSQL", "Playwright", "Headless Shopify"],
   },
 ];
 
@@ -202,9 +90,6 @@ const careerItems = [
   },
 ];
 
-const emailLink =
-  portfolio.socials.find((social) => social.kind === "email")?.href ??
-  "mailto:felixvnolasco@gmail.com";
 const linkedInLink =
   portfolio.socials.find((social) => social.kind === "linkedin")?.href ??
   "https://www.linkedin.com/in/felixvnolasco/";
@@ -212,9 +97,6 @@ const whatsAppLink = "https://wa.me/+525578136020";
 
 const getImageSrc = (image: ImageSource) =>
   typeof image === "string" ? image : image.src;
-
-const splitSkillDescription = (description: string) =>
-  description.split(",").map((skill) => skill.trim());
 
 const ImageFill = ({
   src,
@@ -231,38 +113,8 @@ const ImageFill = ({
   />
 );
 
-const ContactButtons = ({ delay = 0 }: { delay?: number }) => (
-  <RevealText
-    as="div"
-    className="flex flex-col gap-3 sm:flex-row"
-    variant="card"
-    delay={delay}
-  >
-    <AnimatedButton
-      href={whatsAppLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      tone="whatsapp"
-    >
-      <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
-      SEND WHATSAPP
-    </AnimatedButton>
-
-    <AnimatedButton
-      href={linkedInLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      tone="linkedin"
-    >
-      <FaLinkedinIn className="h-5 w-5 shrink-0" aria-hidden="true" />
-      LINKEDIN
-    </AnimatedButton>
-    <AnimatedButton href={emailLink} tone="email">
-      <MdEmail className="h-5 w-5 shrink-0" aria-hidden="true" />
-      SEND ME AN EMAIL
-    </AnimatedButton>
-  </RevealText>
-);
+const heroActionClassName =
+  "inline-flex min-h-[3.75rem] items-center justify-center gap-3 whitespace-nowrap rounded-lg border px-5 font-geist-mono text-[11px] font-bold uppercase duration-200 sm:min-h-0 sm:px-4 sm:py-3";
 
 const HeroActions = ({ delay = 0 }: { delay?: number }) => (
   <RevealText
@@ -271,22 +123,21 @@ const HeroActions = ({ delay = 0 }: { delay?: number }) => (
     variant="card"
     delay={delay}
   >
-    <AnimatedButton
+    <a
       href={whatsAppLink}
       target="_blank"
       rel="noopener noreferrer"
-      tone="whatsapp"
-      className="sm:flex-none"
+      className={`${heroActionClassName} border-[#25D366] bg-[#25D366] text-black hover:bg-[#36e277]`}
     >
-      <FaWhatsapp className="h-5 w-5 shrink-0" aria-hidden="true" />
+      <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden="true" />
       SEND WHATSAPP
-    </AnimatedButton>
+    </a>
 
     <a
       href={linkedInLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex min-h-[3.75rem] items-center justify-center gap-3 rounded-lg border border-white/15 px-5 font-geist-mono text-[11px] font-bold uppercase text-white duration-200 hover:border-white hover:bg-white/10 sm:min-h-0 sm:px-4 sm:py-3"
+      className={`${heroActionClassName} border-white/15 text-white hover:border-white hover:bg-white/10`}
     >
       <FaLinkedinIn className="h-4 w-4 shrink-0" aria-hidden="true" />
       LINKEDIN
@@ -296,13 +147,14 @@ const HeroActions = ({ delay = 0 }: { delay?: number }) => (
 
 const Home: NextPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="mx-auto w-full max-w-[1440px] overflow-x-hidden bg-black">
+    <div className="relative min-h-screen bg-black text-white">
+      <HeroBackdrop />
+
+      <div className="relative z-10 mx-auto w-full max-w-[1440px] overflow-x-hidden">
         <Header />
 
         <main>
         <section className="relative flex min-h-screen flex-col px-5 py-8 sm:px-8 lg:gap-16">
-
           <h2 className="sr-only">{portfolio.owner.name}</h2>
 
           <div className="grid flex-1 content-center gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-16">
@@ -371,7 +223,7 @@ const Home: NextPage = () => {
           id="skills"
         >
           <h2 className="sr-only">Skills</h2>
-          <div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
             <div>
               <RevealText
                 as="p"
@@ -383,32 +235,46 @@ const Home: NextPage = () => {
 
               <RevealText
                 as="p"
-                className="mt-4 max-w-[15rem] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
+                className="mt-4 max-w-[16rem] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
                 variant="body"
                 delay={0.08}
               >
-                Full-stack toolkit organized for quick scanning.
+                Production tools from web apps, dashboards, and Shopify work —
+                plus a short list I'm growing into.
               </RevealText>
             </div>
 
-            <div className="grid gap-3 border-t-2 border-white pt-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid border-t-2 border-white sm:grid-cols-2">
               {stackItems.map((item, index) => (
                 <RevealText
                   as="article"
                   key={item.title}
-                  className="border border-white/15 p-4"
+                  className={`py-8 sm:px-8 sm:py-10 ${
+                    index === 1 ? "border-t border-white/20 sm:border-t-0" : ""
+                  } ${index >= 2 ? "border-t border-white/20" : ""} ${
+                    index % 2 === 1
+                      ? "sm:border-l sm:border-white/20 sm:pr-0"
+                      : "sm:pl-0"
+                  }`}
                   variant="card"
                   delay={index * 0.06}
                 >
                   <h3 className="font-geist-mono text-[11px] font-bold uppercase leading-[1.35] text-white">
                     {item.title}
                   </h3>
+                  <p className="mt-3 max-w-[22rem] font-geist text-sm font-medium leading-[1.45] text-[#a6a6a6]">
+                    {item.subtitle}
+                  </p>
 
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {splitSkillDescription(item.description).map((skill) => (
+                  <ul className="mt-6 flex flex-wrap gap-x-2 gap-y-2.5">
+                    {item.skills.map((skill) => (
                       <li
                         key={`${item.title}-${skill}`}
-                        className="rounded-full border border-white/10 px-3 py-1 font-geist text-sm font-medium leading-tight text-[#d6d6d6]"
+                        className={`rounded-full px-3.5 py-1.5 font-geist text-sm font-medium leading-tight ${
+                          item.adjacent
+                            ? "border border-dashed border-white/30 text-[#a6a6a6]"
+                            : "border border-white/15 text-[#d6d6d6]"
+                        }`}
                       >
                         {skill}
                       </li>
@@ -494,14 +360,25 @@ const Home: NextPage = () => {
             >
               FEATURED PROJECTS
             </RevealText>
+            <RevealText
+              as="p"
+              className="mt-4 max-w-[34rem] font-geist text-base font-medium leading-[1.35] text-[#a6a6a6]"
+              variant="body"
+              delay={0.08}
+            >
+              Live web apps, storefronts, and brand sites — same stack, different
+              products.
+            </RevealText>
           </div>
 
-          <div className="mx-auto mt-16 grid w-full  gap-12  lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.9fr)] lg:gap-4">
-            <div className="lg:flex flex-col gap-5 hidden">
+          <div className="mt-10 h-[2px] w-full bg-white" aria-hidden="true" />
+
+          <div className="mx-auto mt-12 grid w-full gap-16 lg:grid-cols-2 lg:items-start lg:gap-16">
+            <div className="hidden flex-col gap-14 lg:flex">
               {leftProjects.map((project, index) => (
                 <RevealText
                   as="div"
-                  key={project.href}
+                  key={project.id}
                   variant="card"
                   delay={index * 0.08}
                 >
@@ -518,11 +395,11 @@ const Home: NextPage = () => {
               ))}
             </div>
 
-            <div className="lg:hidden flex-col gap-5 flex">              
+            <div className="flex flex-col gap-10 lg:hidden">
               {leftProjects.map((project, index) => (
                 <RevealText
                   as="div"
-                  key={project.href}
+                  key={project.id}
                   variant="card"
                   delay={index * 0.08}
                 >
@@ -537,76 +414,31 @@ const Home: NextPage = () => {
                 </RevealText>
               ))}
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10 lg:pt-0">
               {rightProjects.map((project, index) => (
-                <Link key={project.href} href={project.href} passHref>
-                  <RevealText
-                    as="a"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-white"
-                    variant="card"
-                    delay={index * 0.06}
-                  >
-                    <FeaturedProjectHorizontal
-                      href={project.href}
-                      category={project.category}
-                      year={project.year}
-                      title={project.name}
-                      description={project.description}
-                      image={project.image}
-                    />
-                  </RevealText>
-                </Link>
+                <RevealText
+                  key={project.id}
+                  as="div"
+                  className="block text-white"
+                  variant="card"
+                  delay={index * 0.06}
+                >
+                  <FeaturedProjectHorizontal
+                    href={project.href}
+                    category={project.category}
+                    year={project.year}
+                    title={project.name}
+                    description={project.description}
+                    image={project.image}
+                  />
+                </RevealText>
               ))}
             </div>
           </div>
         </section>
         </main>
 
-        <footer
-          className="px-5 py-16 sm:px-8 lg:py-24"
-          id="contact"
-        >
-          <h2 className="sr-only">Get in touch</h2>
-          <div className="grid gap-12 lg:grid-cols-[minmax(10rem,0.7fr)_minmax(18rem,1fr)_minmax(18rem,0.9fr)] lg:items-start lg:gap-16">
-            <RevealText
-              as="p"
-              className="font-geist-mono text-xs font-bold uppercase text-white"
-              variant="link"
-            >
-              AVAILABLE FOR NEW OPPORTUNITIES
-            </RevealText>
-            <RevealText
-              as="p"
-              className="max-w-[430px] font-geist text-[22px] font-medium leading-[1.3] text-[#a6a6a6]"
-              variant="body"
-              delay={0.06}
-            >
-              Send a note or connect through LinkedIn.
-            </RevealText>
-            <RevealText
-              as="h2"
-              className="font-anton text-[clamp(4.5rem,9vw,116px)] uppercase leading-[0.9]"
-              variant="heading"
-              delay={0.12}
-            >
-              LET&apos;S TALK
-            </RevealText>
-          </div>
-
-          <div className="mt-16 flex flex-col gap-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-            <ContactButtons />
-
-            <RevealText
-              as="p"
-              className="font-geist-mono text-xs font-medium text-[#a6a6a6]"
-              variant="body"
-            >
-              Felix Vega / Senior Software Developer
-            </RevealText>
-          </div>
-        </footer>
+        <ContactFooter />
       </div>
     </div>
   );

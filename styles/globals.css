@@ -20,3 +20,89 @@
     text-stroke: 1px #ffffff;
   }
 }
+
+@keyframes hero-bg-flow {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+
+@keyframes hero-bg-pulse {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes hero-bg-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.16;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 0.32;
+  }
+}
+
+@keyframes hero-bg-scan {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.35;
+  }
+  88% {
+    opacity: 0.35;
+  }
+  to {
+    transform: translateY(860px);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-bg-packet {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.hero-bg-flow {
+  stroke-dasharray: 6 18;
+  animation: hero-bg-flow 9s linear infinite;
+}
+
+.hero-bg-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-bg-pulse 4.8s ease-in-out infinite;
+}
+
+.hero-bg-float {
+  animation: hero-bg-float 7s ease-in-out infinite;
+}
+
+.hero-bg-scan {
+  animation: hero-bg-scan 14s linear infinite;
+}
+
+.hero-bg-packet {
+  animation: hero-bg-packet 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-backdrop * {
+    animation: none !important;
+  }
+}

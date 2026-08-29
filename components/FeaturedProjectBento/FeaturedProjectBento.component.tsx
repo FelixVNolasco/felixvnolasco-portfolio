@@ -34,14 +34,14 @@ const ImageFill = ({
   <img
     src={getImageSrc(src)}
     alt={alt}
-    className="absolute inset-0 h-full w-full object-cover"
+    className="absolute inset-0 h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
   />
 );
 
 const FeaturedProjectBento = ({
   href = "https://tecnovidrio-projects-eight.vercel.app/",
   category = "INDUSTRIAL WEBSITE",
-year,
+  year,
   title = "GRUPO TECNOVIDRIO",
   label,
   description = "Presencia para soluciones de vidrio y aluminio con navegacion directa, prueba comercial y una lectura institucional limpia.",
@@ -50,41 +50,34 @@ year,
   className = "",
 }: FeaturedProjectBentoProps) => {
   const card = (
-    <article
-      className={`flex w-full flex-col gap-[14px] overflow-hidden rounded-[10px] bg-[#111111] p-[14px] text-white ${className}`}
-    >
-      <div className="flex flex-col gap-[18px] overflow-hidden rounded-lg bg-[#181818] p-3">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[7px]">
-          <ImageFill src={heroImage} alt={`${title} hero`} />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-4 font-geist-mono text-[10px] font-bold uppercase leading-[1.2]">
-            <p className="text-[#ff8400]">{category}</p>
-            <p className="text-[#9a9a9a]">{year}</p>
-          </div>
-          <h3 className="font-anton text-[43px] font-normal uppercase leading-[0.9]">
-            {title}
-          </h3>
-        </div>
+    <article className={`border-t-2 border-white pt-6 text-white ${className}`}>
+      <div className="relative aspect-[16/9] overflow-hidden bg-[#111111]">
+        <ImageFill src={heroImage} alt={`${title} hero`} />
       </div>
 
-      <div className="grid gap-[14px] sm:grid-cols-[minmax(8rem,40%)_minmax(0,1fr)]">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+      <div className="mt-6 flex items-baseline justify-between gap-4 font-geist-mono text-[11px] font-bold uppercase leading-[1.35]">
+        <p className="text-white">{category}</p>
+        <p className="text-[#a6a6a6]">{year}</p>
+      </div>
+
+      <h3 className="mt-3 font-geist text-[clamp(1.7rem,3.2vw,2rem)] font-bold leading-[1.05] tracking-normal text-white">
+        {title}
+      </h3>
+
+      <div className="mt-6 grid gap-6 sm:grid-cols-[minmax(8rem,11rem)_minmax(0,1fr)] sm:items-start sm:gap-8">
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#111111]">
           <ImageFill src={supportImage} alt={`${title} support`} />
         </div>
 
-        <div className="flex min-w-0 flex-col justify-between gap-10 overflow-hidden rounded-lg bg-[#181818] p-4">
-          <div className="h-[5px] w-16 rounded-[3px] bg-[#ff8400]" />
-
-          <div className="flex flex-col gap-[7px]">
-            <p className="font-geist-mono text-[8px] font-bold uppercase leading-[1.2] text-[#bdbdbd]">
+        <div className="min-w-0">
+          {label ? (
+            <p className="mb-3 font-geist-mono text-[11px] font-bold uppercase leading-[1.35] text-[#a6a6a6]">
               {label}
             </p>
-            <p className="font-geist text-xs font-medium leading-[1.25] text-[#bdbdbd]">
-              {description}
-            </p>
-          </div>
+          ) : null}
+          <p className="font-geist text-base font-medium leading-[1.45] text-[#a6a6a6] sm:text-lg">
+            {description}
+          </p>
         </div>
       </div>
     </article>
@@ -92,7 +85,11 @@ year,
 
   return (
     <Link href={href} passHref>
-      <a target="_blank" rel="noopener noreferrer" className="block w-full">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block w-full outline-none transition duration-200 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+      >
         {card}
       </a>
     </Link>

@@ -39,4 +39,19 @@ describe("home page", () => {
     expect(footer?.querySelectorAll("a")).toHaveLength(3);
     expect(footer?.querySelectorAll("svg")).toHaveLength(3);
   });
+
+  it("opens featured projects as external links", () => {
+    render(<Home />);
+
+    const ogcLinks = screen.getAllByRole("link", { name: /OGC/i });
+
+    expect(ogcLinks.length).toBeGreaterThan(0);
+    ogcLinks.forEach((link) => {
+      expect(link).toHaveAttribute("href", "https://www.ogc.mx/");
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    });
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
 });
