@@ -17,7 +17,6 @@ const stackItems = [
   {
     title: "Interface",
     subtitle: "Dashboards, storefronts, and reusable product UI.",
-    adjacent: false,
     skills: [
       "React",
       "TypeScript",
@@ -28,12 +27,12 @@ const stackItems = [
       "shadcn/ui",
       "TanStack Table",
       "React Hook Form",
+      "Playwright",
     ],
   },
   {
     title: "Systems",
     subtitle: "Data, access control, and the services underneath.",
-    adjacent: false,
     skills: [
       "Convex",
       "Clerk",
@@ -42,20 +41,32 @@ const stackItems = [
       "Zustand",
       "Zod",
       "JWT / RBAC",
+      "Node.js",
+      "PostgreSQL",
     ],
   },
   {
     title: "Commerce",
     subtitle: "Shopify builds, technical SEO, and where they ship.",
-    adjacent: false,
-    skills: ["Shopify", "Liquid 2.0", "Technical SEO", "Vercel", "AWS"],
+    skills: [
+      "Shopify",
+      "Liquid 2.0",
+      "Technical SEO",
+      "Vercel",
+      "AWS",
+      "Headless Shopify",
+    ],
   },
   {
-    title: "Next up",
-    subtitle:
-      "Adjacent skills with outsized demand — growing into them, not daily production.",
-    adjacent: true,
-    skills: ["Node.js", "PostgreSQL", "Playwright", "Headless Shopify"],
+    title: "AI & SDD",
+    subtitle: "Spec-driven workflows and AI-assisted shipping.",
+    skills: [
+      "Spec-Driven Development",
+      "Claude Code",
+      "Cursor",
+      "OpenCode",
+      "Harness Engineering",
+    ],
   },
 ];
 
@@ -66,13 +77,10 @@ const careerItems = [
     period: "Dec 2023 - Present",
     company: "Polygon Agency",
     highlights: [
-      "Develop full-stack web applications and internal business dashboards using React, TypeScript, Next.js, Vite, TailwindCSS, Convex, and Clerk.",
-      "Build financial and operational modules for project management, budget control, transactions, payments, sales workflows, document management, and reporting.",
-      "Implement role-based access control, protected routes, user management, and secure authorization flows for admin, user, and viewer roles.",
-      "Design reusable UI components, tables, modals, forms, filters, charts, and dashboards using Radix UI, TanStack Table, Zustand, React Hook Form, and Zod.",
-      "Create backend schemas, queries, mutations, and validation logic in Convex to support real-time data operations and business workflows.",
-      "Customize and develop Shopify storefronts using Liquid 2.0, improving usability, performance, and customer engagement.",
-      "Optimize websites for SEO, responsive design, accessibility, and Google PageSpeed performance.",
+      "Build full-stack dashboards in React, TypeScript, Next.js, Vite, and Tailwind, with Convex real-time backends (schemas, queries, mutations) and Clerk auth.",
+      "Implement financial and ops modules — project management, budgets, payments, sales, documents, reporting — with RBAC for admin, user, and viewer roles.",
+      "Design reusable tables, forms, filters, and charts with Radix UI, TanStack Table, Zustand, React Hook Form, and Zod.",
+      "Customize Shopify storefronts in Liquid 2.0 and tune sites for SEO, accessibility, and PageSpeed.",
     ],
   },
   {
@@ -81,11 +89,9 @@ const careerItems = [
     period: "Apr 2022 - Dec 2023",
     company: "Softtek",
     highlights: [
-      "Automated data workflows using KNIME Analytics, Python, and SQL to improve operational efficiency and reduce manual processing.",
-      "Designed, maintained, and optimized relational databases to support reporting, data retrieval, and business analysis.",
-      "Built and executed SQL queries for data extraction, transformation, validation, and integrity checks.",
-      "Supported data-driven decision making by transforming complex datasets into structured and actionable information.",
-      "Collaborated with cross-functional teams to align technical solutions with business requirements.",
+      "Automated operational data workflows with KNIME Analytics, Python, and SQL.",
+      "Designed and optimized relational databases; wrote SQL for extraction, transformation, validation, and integrity.",
+      "Turned complex datasets into structured reports that support operational decisions.",
     ],
   },
 ];
@@ -239,8 +245,8 @@ const Home: NextPage = () => {
                 variant="body"
                 delay={0.08}
               >
-                Production tools from web apps, dashboards, and Shopify work —
-                plus a short list I'm growing into.
+                Production tools from web apps, dashboards, Shopify, and
+                AI-assisted shipping.
               </RevealText>
             </div>
 
@@ -270,11 +276,7 @@ const Home: NextPage = () => {
                     {item.skills.map((skill) => (
                       <li
                         key={`${item.title}-${skill}`}
-                        className={`rounded-full px-3.5 py-1.5 font-geist text-sm font-medium leading-tight ${
-                          item.adjacent
-                            ? "border border-dashed border-white/30 text-[#a6a6a6]"
-                            : "border border-white/15 text-[#d6d6d6]"
-                        }`}
+                        className="rounded-full border border-white/15 px-3.5 py-1.5 font-geist text-sm font-medium leading-tight text-[#d6d6d6]"
                       >
                         {skill}
                       </li>
