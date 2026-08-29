@@ -68,7 +68,7 @@ const FLOW_EDGES = [0, 5, 9, 14, 19, 24];
 
 const HeroBackdrop = () => (
   <div
-    className="hero-backdrop pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    className="hero-backdrop pointer-events-none z-0"
     aria-hidden="true"
   >
     <svg

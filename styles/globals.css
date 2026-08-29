@@ -101,6 +101,28 @@
   animation: hero-bg-packet 3.2s ease-in-out infinite;
 }
 
+.hero-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100lvh;
+  overflow: hidden;
+  /* Anchor to the layout viewport. inset/bottom:0 resizes with the iOS URL bar and the layer jumps on scroll. */
+  bottom: auto;
+  right: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 640px) {
+  .hero-bg-scan {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-backdrop * {
     animation: none !important;
